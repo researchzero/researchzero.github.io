@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockchain Security for Financial Institutions | ResearchZero</title>
+  <meta name="description" content="Smart contract audits and blockchain security reviews for banks, fintechs, asset managers and custodians building tokenized assets, DeFi and on-chain settlement.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://researchzero.io/">
+  <link rel="alternate" href="https://researchzero.io/" hreflang="en">
+  <link rel="alternate" href="https://researchzero.io/" hreflang="x-default">
+  <meta name="theme-color" content="#b91c1c">
+  <meta name="author" content="ResearchZero">
+  <meta name="application-name" content="ResearchZero">
+
+  <!-- Keywords -->
+  <meta name="keywords" content="financial institution blockchain security, institutional smart contract audit, on-chain finance security, tokenized asset security, RWA smart contract audit, bank blockchain security, custody smart contract audit, on-chain settlement security, DeFi security review, blockchain cybersecurity, smart contract audit, Solidity audit, Solana audit, Rust audit, Move audit, protocol security">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://researchzero.io/">
+  <meta property="og:title" content="ResearchZero | Blockchain Security for Financial Institutions">
+  <meta property="og:description" content="Smart contract audits, protocol security, and blockchain cybersecurity for banks, fintechs, custodians, and asset managers building on-chain financial products.">
+  <meta property="og:site_name" content="ResearchZero">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ResearchZero | Blockchain Security for Financial Institutions">
+  <meta name="twitter:description" content="Institutional smart contract audits and adversarial blockchain security research for financial firms building tokenized assets and on-chain settlement.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "ProfessionalService"],
+    "name": "ResearchZero",
+    "url": "https://researchzero.io",
+    "description": "Smart contract audits, blockchain cybersecurity, protocol security research, and institutional-grade security review for banks, fintechs, custodians, asset managers, and financial systems moving on-chain.",
+    "slogan": "Smart contract security for finance moving on-chain.",
+    "serviceType": ["Institutional Smart Contract Audit", "Blockchain Cybersecurity Audit", "DeFi Security Review", "Tokenized Asset Security Review", "On-Chain Settlement Security Review", "Custody and Wallet Security Review", "Protocol Security Research", "Infrastructure Audit"],
+    "areaServed": "Worldwide",
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Financial institutions, banks, fintech companies, custodians, asset managers, DeFi protocols, and blockchain infrastructure teams"
+    },
+    "knowsAbout": ["Smart Contracts", "Blockchain Security", "Institutional DeFi", "Tokenized Assets", "Real World Assets", "On-Chain Settlement", "Digital Asset Custody", "Solidity", "Solana", "Rust", "Move", "Ethereum", "Web3"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Institutional Blockchain Security Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Institutional Smart Contract Audits",
+            "description": "Manual review of smart contracts that control deposits, withdrawals, tokenized assets, settlement flows, custody permissions, and protocol accounting."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Tokenized Asset Security Review",
+            "description": "Security assessment for RWA, tokenized fund, stablecoin, collateral, and on-chain settlement systems."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "DeFi and Protocol Security Research",
+            "description": "Adversarial review of economic attack surfaces, oracle dependencies, liquidation logic, bridge assumptions, and governance controls."
+          }
+        }
+      ]
+    },
+    "sameAs": [
+      "https://x.com/researchzeroio",
+      "https://github.com/researchzero"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What blockchain security services does ResearchZero provide for financial institutions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ResearchZero provides smart contract audits, tokenized asset security reviews, DeFi protocol security, custody and wallet security review, bridge and infrastructure audits, and adversarial research for financial firms building on-chain systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who should request an institutional smart contract audit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Banks, fintech companies, custodians, asset managers, payment companies, stablecoin issuers, RWA platforms, exchanges, and DeFi protocols should request an audit before launching contracts that hold assets, settle transactions, mint tokens, manage collateral, or control privileged operations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What risks are reviewed in an on-chain finance security assessment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Reviews cover access control, accounting invariants, upgrade authority, oracle assumptions, custody permissions, bridge trust assumptions, governance actions, liquidation logic, settlement edge cases, MEV exposure, and exploit paths that can affect real capital."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ResearchZero",
+        "item": "https://researchzero.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blockchain Security for Financial Institutions",
+        "item": "https://researchzero.io/#services"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/site.css">
+  <style>
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 220px;
+      background: linear-gradient(180deg, transparent, rgba(12, 12, 20, 0.05));
+      pointer-events: none;
+    }
+
+    .hero-content { max-width: 1180px; }
+
+    .hero h1 {
+      max-width: 1180px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: clamp(2.7rem, 8.2vw, 7rem);
+      margin-bottom: 28px;
+    }
+
+    .hero-text {
+      max-width: 860px;
+      font-size: clamp(1rem, 1.28vw, 1.16rem);
+      margin-bottom: 38px;
+    }
+
+    .hero-proof {
+      display: inline-flex;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      max-width: none;
+      margin: 28px auto 0;
+      background: transparent;
+      border: 0;
+      clip-path: none;
+    }
+
+    .hero-proof-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      background: transparent;
+      backdrop-filter: none;
+      text-align: center;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .hero-proof-item:last-child { border-right: 0; }
+
+    .hero-proof-kicker {
+      display: none;
+      font-family: var(--font-mono);
+      font-size: 0.56rem;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .hero-proof-value {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .settlement-terminal {
+      width: min(100%, 500px);
+      background: #08080e;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+      overflow: hidden;
+    }
+
+    .terminal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .terminal-title {
+      font-family: var(--font-display);
+      font-size: 0.58rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.68);
+    }
+
+    .terminal-status {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 1.5px;
+      color: #ff6b6b;
+    }
+
+    .terminal-body { padding: 22px; }
+
+    .terminal-route {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .terminal-finding {
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(185, 28, 28, 0.24);
+      background: rgba(185, 28, 28, 0.08);
+      font-family: var(--font-mono);
+      color: rgba(255,255,255,0.68);
+      font-size: 0.7rem;
+      line-height: 1.7;
+    }
+
+    .terminal-finding strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #ff8f8f;
+      font-family: var(--font-display);
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .terminal-vector {
+      display: grid;
+      grid-template-columns: 88px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.58);
+    }
+
+    .terminal-vector span:first-child { color: rgba(255,255,255,0.3); }
+    .terminal-vector span:last-child { color: var(--accent); }
+
+    .terminal-node {
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .terminal-node span,
+    .metric-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.34);
+      margin-bottom: 6px;
+    }
+
+    .terminal-node strong,
+    .metric-value {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 1.6px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .terminal-arrow {
+      width: 54px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), rgba(255,255,255,0.2));
+      position: relative;
+    }
+
+    .terminal-arrow::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -4px;
+      width: 8px;
+      height: 8px;
+      border-top: 1px solid var(--accent);
+      border-right: 1px solid var(--accent);
+      transform: rotate(45deg);
+    }
+
+    .terminal-ledger {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .ledger-row {
+      display: grid;
+      grid-template-columns: 84px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.58);
+    }
+
+    .ledger-row span:first-child { color: rgba(255,255,255,0.28); }
+    .ledger-row span:last-child { color: var(--accent); }
+
+    .terminal-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .terminal-metric {
+      padding: 14px;
+      background: rgba(185, 28, 28, 0.08);
+    }
+
+    .audit-scope-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 8px 0 24px;
+    }
+
+    .audit-scope-list span {
+      padding: 11px 12px;
+      border: 1px solid var(--border-light);
+      background: rgba(255,255,255,0.44);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--text-body);
+    }
+
+    .audit-scope-list span::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      margin-right: 8px;
+      background: var(--accent);
+      transform: rotate(45deg) translateY(-1px);
+      opacity: 0.85;
+    }
+
+    .capabilities::after,
+    .cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(185,28,28,0.08), transparent 42%);
+      pointer-events: none;
+    }
+
+    .cta-content {
+      z-index: 1;
+    }
+
+    .mission-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+      margin: 24px auto 0;
+      max-width: 1180px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .capabilities-header {
+      max-width: 1180px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .capabilities-subtitle {
+      max-width: 820px;
+    }
+
+    .capabilities-divider {
+      max-width: 1180px;
+    }
+
+    .capabilities-grid {
+      max-width: 1180px;
+    }
+
+    .mission-panel {
+      grid-column: span 1;
+      border: 1px solid var(--border-dark);
+      background: rgba(255,255,255,0.025);
+      padding: 32px;
+      border-radius: var(--radius);
+    }
+
+    .mission-panel h3 {
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 14px;
+    }
+
+    .mission-panel p {
+      color: var(--text-light-muted);
+      font-weight: 300;
+      line-height: 1.75;
+      font-size: 0.92rem;
+    }
+
+    .mission-statement {
+      display: flex;
+      align-items: center;
+      grid-column: span 2;
+      border: 1px solid rgba(185,28,28,0.22);
+      background: linear-gradient(135deg, rgba(185,28,28,0.08), rgba(255,255,255,0.025));
+      border-radius: var(--radius);
+      padding: 32px;
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2vw, 1.45rem);
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .institutional-seo,
+    .faq-section {
+      padding: var(--section-padding);
+      background: var(--bg-white);
+    }
+
+    .institutional-seo .container,
+    .faq-section .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .institutional-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .institutional-copy p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .institutional-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .institutional-list li,
+    .faq-item {
+      list-style: none;
+      border: 1px solid var(--border-light);
+      background: rgba(255,255,255,0.64);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    .institutional-list strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 5px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .faq-item h3 {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .faq-item p {
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    :root {
+      --section-padding: 112px 0;
+    }
+
+    .capabilities,
+    .cta {
+      padding: 128px 0;
+    }
+
+    .services-header {
+      margin-bottom: 48px;
+    }
+
+    .process-header {
+      margin-bottom: 60px;
+    }
+
+    .institutional-seo,
+    .faq-section {
+      padding: 96px 0;
+    }
+
+    .services + .institutional-seo {
+      padding-top: 24px;
+    }
+
+    .process + .faq-section {
+      padding-top: 48px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .cta-mail-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      width: min(100%, 420px);
+      margin: 0 auto;
+      padding: 8px 8px 8px 22px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      color: #ffffff;
+      text-decoration: none;
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .cta-mail-link:hover,
+    .cta-mail-link:focus-visible {
+      border-color: var(--accent);
+      background: rgba(255,255,255,0.08);
+      outline: none;
+    }
+
+    .cta-mail-link span:first-child {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .cta-mail-link .cta-submit {
+      flex: 0 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: clamp(1.75rem, 8.2vw, 2.65rem);
+      }
+
+      .hero-proof,
+      .mission-strip,
+      .terminal-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-proof {
+        display: none;
+        margin: 0;
+      }
+
+      .terminal-route {
+        grid-template-columns: 1fr;
+      }
+
+      .terminal-arrow {
+        width: 1px;
+        height: 38px;
+        margin-left: 16px;
+      }
+
+      .terminal-arrow::after {
+        right: -4px;
+        top: auto;
+        bottom: 0;
+        transform: rotate(135deg);
+      }
+
+      .ledger-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .terminal-vector {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .audit-scope-list {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-statement {
+        grid-column: span 1;
+        border: 1px solid rgba(185,28,28,0.22);
+        padding: 28px;
+      }
+
+      .institutional-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      :root {
+        --section-padding: 84px 0;
+      }
+
+      .capabilities,
+      .cta,
+      .institutional-seo,
+      .faq-section {
+        padding: 84px 0;
+      }
+
+      .services + .institutional-seo {
+        padding-top: 12px;
+      }
+
+      .process + .faq-section {
+        padding-top: 40px;
+      }
+    }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-soft-32x32.png">
+  <link rel="shortcut icon" href="favicon-soft-32x32.png">
+</head>
+<body>
+
+  <!-- Visual overlays -->
+  <div class="scanlines"></div>
+  <div class="noise-overlay"></div>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-research">RESEARCH</span><span class="logo-zero">ZERO</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#why-us" class="nav-link">Why Us</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="#contact" class="nav-cta-btn">
+          Request Security Review
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+      <button class="nav-hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  </header>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-mobile" role="navigation" aria-label="Mobile navigation">
+    <a href="#services">Services</a>
+    <a href="#why-us">Why Us</a>
+    <a href="#process">Process</a>
+    <a href="#contact" class="nav-cta-btn">Request Security Review</a>
+  </div>
+
+  <main>
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-glow"></div>
+    <!-- Data stream decorations -->
+    <div class="data-stream"></div>
+    <div class="data-stream"></div>
+    <div class="data-stream"></div>
+    <div class="data-stream"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-label reveal-text" data-delay="0">
+          <span class="label-line"></span>
+          RESEARCH ZERO
+          <span class="label-line"></span>
+        </div>
+        <h1 class="reveal-text" data-delay="200">
+          <span class="sr-only">ResearchZero - Blockchain security and smart contract audits for financial institutions building on-chain</span>
+          <span aria-hidden="true">SECURING<br>FINANCE <span class="highlight">ON</span> CHAIN</span>
+        </h1>
+        <p class="hero-text reveal-text" data-delay="400">
+          Institutional smart contract audits, blockchain security reviews, and adversarial protocol research for banks, fintechs, asset managers, custodians, and financial platforms bringing real value on-chain.
+        </p>
+        <div class="hero-actions reveal-text" data-delay="600">
+          <a href="#contact" class="btn-primary">
+            <span>Request security review</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#services" class="btn-ghost">
+            <span>Explore security services</span>
+          </a>
+        </div>
+        <div class="hero-proof reveal-text" data-delay="800" aria-label="ResearchZero focus areas">
+          <div class="hero-proof-item">
+            <span class="hero-proof-kicker">Core</span>
+            <span class="hero-proof-value">Smart contract audits</span>
+          </div>
+          <div class="hero-proof-item">
+            <span class="hero-proof-kicker">Method</span>
+            <span class="hero-proof-value">Adversarial research</span>
+          </div>
+          <div class="hero-proof-item">
+            <span class="hero-proof-kicker">Surface</span>
+            <span class="hero-proof-value">On-chain finance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CAPABILITIES ========== -->
+  <section class="capabilities" id="why-us">
+    <div class="capabilities-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+    <div class="container">
+      <div class="capabilities-header fade-in">
+        <span class="section-eyebrow">Why ResearchZero</span>
+        <h2>Security for Finance<br><span class="text-gradient">Moving On-Chain</span></h2>
+        <p class="capabilities-subtitle">Every institutional on-chain financial product is only as strong as its contracts, assumptions, and controls. We find the bugs, broken invariants, custody risks, and attack paths that can move real capital.</p>
+      </div>
+      <div class="capabilities-divider fade-in"></div>
+      <div class="capabilities-grid">
+        <div class="capability-card fade-in">
+          <div class="capability-card-inner">
+            <div class="capability-number">01</div>
+            <div class="capability-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                <circle cx="24" cy="24" r="20"/>
+                <circle cx="24" cy="24" r="12"/>
+                <circle cx="24" cy="24" r="4"/>
+                <line x1="24" y1="2" x2="24" y2="8"/>
+                <line x1="24" y1="40" x2="24" y2="46"/>
+                <line x1="2" y1="24" x2="8" y2="24"/>
+                <line x1="40" y1="24" x2="46" y2="24"/>
+              </svg>
+            </div>
+            <h3>Code</h3>
+            <p>Manual smart contract review across Solidity, Vyper, Rust, and Move with attention to access control, state transitions, custody permissions, accounting, and upgrade risk.</p>
+          </div>
+        </div>
+        <div class="capability-card fade-in">
+          <div class="capability-card-inner">
+            <div class="capability-number">02</div>
+            <div class="capability-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="6" y="6" width="36" height="36" rx="4"/>
+                <line x1="6" y1="18" x2="42" y2="18"/>
+                <line x1="18" y1="6" x2="18" y2="42"/>
+                <circle cx="30" cy="30" r="6"/>
+                <path d="M36 36l5 5"/>
+              </svg>
+            </div>
+            <h3>Logic</h3>
+            <p>Business logic and economic security analysis for vaults, markets, bridges, staking, tokenized assets, real-world asset systems, and institutional DeFi integrations.</p>
+          </div>
+        </div>
+        <div class="capability-card fade-in">
+          <div class="capability-card-inner">
+            <div class="capability-number">03</div>
+            <div class="capability-icon">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M24 4L6 14v12c0 12 8 23 18 28 10-5 18-16 18-28V14L24 4z"/>
+                <polyline points="16 24 22 30 34 18" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Attack</h3>
+            <p>Adversarial testing with proof-of-concept exploits, exploitability reasoning, severity context, and remediation paths your engineers can ship.</p>
+          </div>
+        </div>
+      </div>
+      <div class="mission-strip fade-in">
+        <div class="mission-panel">
+          <h3>Mission</h3>
+          <p>ResearchZero exists to secure the smart contracts, tokenized assets, custody flows, and blockchain protocols that will carry the next generation of financial markets.</p>
+        </div>
+        <div class="mission-statement">We secure the contracts, protocols, custody flows, and settlement rails that bring traditional finance on-chain.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header fade-in">
+        <span class="section-eyebrow">What We Do</span>
+        <h2 class="section-title">Smart Contract <span class="text-gradient">Security Services</span></h2>
+        <p class="section-subtitle">Elite audits and adversarial security research for smart contracts, DeFi systems, tokenized assets, stablecoins, bridges, wallets, custody systems, and blockchain infrastructure.</p>
+      </div>
+
+      <div class="services-bento">
+        <!-- Large card -->
+        <div class="bento-card bento-large fade-in">
+          <div class="bento-card-glow"></div>
+          <div class="bento-content">
+            <div class="bento-label">Smart Contract Audits</div>
+            <h3>Manual security review for contracts that control institutional value</h3>
+            <p>Senior researchers examine the code paths where funds move, tokenized assets settle, accounting changes, privileges execute, and protocol assumptions can fail.</p>
+            <div class="audit-scope-list" aria-label="Smart contract audit coverage">
+              <span>Accounting invariants</span>
+              <span>Access control</span>
+              <span>Upgrade safety</span>
+              <span>Oracle assumptions</span>
+              <span>DeFi composability</span>
+              <span>Custody controls</span>
+            </div>
+            <a href="#contact" class="bento-link">
+              Start an audit
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="bento-visual">
+            <div class="settlement-terminal">
+              <div class="terminal-top">
+                <span class="terminal-title">R0 Security Console</span>
+                <span class="terminal-status">CRITICAL PATH</span>
+              </div>
+              <div class="terminal-body">
+                <div class="terminal-route">
+                  <div class="terminal-node">
+                    <span>Target</span>
+                    <strong>settlementVault.sol</strong>
+                  </div>
+                  <div class="terminal-arrow"></div>
+                  <div class="terminal-node">
+                    <span>Outcome</span>
+                    <strong>Funds Protected</strong>
+                  </div>
+                </div>
+                <div class="terminal-finding">
+                  <strong>Exploit path isolated</strong>
+                  Oracle delay plus unchecked collateral accounting enables under-collateralized withdrawal during volatile markets.
+                </div>
+                <div class="terminal-ledger">
+                  <div class="terminal-vector"><span>AUTH</span><strong>ROLE ESCALATION</strong><span>BLOCKED</span></div>
+                  <div class="terminal-vector"><span>STATE</span><strong>INVARIANT BREAK</strong><span>PATCHED</span></div>
+                  <div class="terminal-vector"><span>ORACLE</span><strong>STALE PRICE PATH</strong><span>FIXED</span></div>
+                  <div class="terminal-vector"><span>VALUE</span><strong>ACCOUNTING DRIFT</strong><span>CLOSED</span></div>
+                </div>
+                <div class="terminal-metrics">
+                  <div class="terminal-metric">
+                    <span class="metric-label">Review</span>
+                    <span class="metric-value">Manual</span>
+                  </div>
+                  <div class="terminal-metric">
+                    <span class="metric-label">Evidence</span>
+                    <span class="metric-value">PoC</span>
+                  </div>
+                  <div class="terminal-metric">
+                    <span class="metric-label">Output</span>
+                    <span class="metric-value">Fixes</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medium cards -->
+        <div class="bento-card bento-medium fade-in">
+          <div class="bento-card-glow"></div>
+          <div class="bento-content">
+            <div class="bento-label">Institutional DeFi Security</div>
+            <h3>Economic attack surface review for programmable financial markets</h3>
+            <p>Flash loan vectors, oracle manipulation, liquidation edge cases, governance attacks, MEV exposure, collateral stress, settlement timing, and cross-protocol composability risk.</p>
+            <a href="#contact" class="bento-link">
+              Learn more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="bento-card bento-medium fade-in">
+          <div class="bento-card-glow"></div>
+          <div class="bento-content">
+            <div class="bento-label">Solana &amp; Rust Audits</div>
+            <h3>Native Solana program and high-performance protocol security</h3>
+            <p>Solana programs, Anchor frameworks, and Rust infrastructure reviewed for account validation flaws, PDA misuse, privilege escalation, CPI risk, and unsafe state assumptions.</p>
+            <a href="#contact" class="bento-link">
+              Learn more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="bento-card bento-medium fade-in">
+          <div class="bento-card-glow"></div>
+          <div class="bento-content">
+            <div class="bento-label">Protocol, Custody &amp; Infrastructure</div>
+            <h3>Security review for bridges, nodes, wallets, validators, and custody systems</h3>
+            <p>Deep review of blockchain infrastructure, signing flows, validator operations, bridge assumptions, wallet policies, monitoring surfaces, and production controls around high-value protocols.</p>
+            <a href="#contact" class="bento-link">
+              Learn more
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INSTITUTIONAL SECURITY ========== -->
+  <section class="institutional-seo" id="institutional-blockchain-security">
+    <div class="container">
+      <div class="institutional-grid">
+        <div class="institutional-copy fade-in">
+          <span class="section-eyebrow">Institutional Blockchain Security</span>
+          <h2 class="section-title">Security services for financial institutions building on-chain</h2>
+          <p>ResearchZero helps banks, asset managers, fintech companies, custodians, payment networks, exchanges, and capital markets teams launch blockchain systems with rigorous smart contract security and protocol risk review.</p>
+          <p>Our work focuses on the controls that matter when regulated financial products move on-chain: token issuance, redemption flows, custody authorization, settlement logic, collateral accounting, oracle dependencies, privileged operations, emergency controls, and upgrade governance.</p>
+          <p>Whether your team is launching tokenized deposits, real-world assets, stablecoins, institutional DeFi access, digital asset custody, or blockchain settlement infrastructure, we review the code and the financial assumptions behind it before production capital is exposed.</p>
+        </div>
+        <ul class="institutional-list fade-in" aria-label="Institutional blockchain security use cases">
+          <li><strong>Tokenized Assets &amp; RWAs</strong>Security review for tokenized funds, real-world assets, stablecoins, collateral vaults, redemption mechanics, and investor permissioning.</li>
+          <li><strong>Digital Asset Custody</strong>Review of wallet controls, signing flows, access policies, multisig assumptions, smart account logic, and privileged operational paths.</li>
+          <li><strong>On-Chain Settlement</strong>Assessment of settlement contracts, payment flows, bridge dependencies, finality assumptions, liquidity controls, and transaction failure modes.</li>
+          <li><strong>Institutional DeFi</strong>Adversarial review of market logic, oracle risk, liquidations, governance controls, MEV exposure, cross-protocol integrations, and economic attack surfaces.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROCESS ========== -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="process-header fade-in">
+        <span class="section-eyebrow">How It Works</span>
+        <h2 class="section-title">The Audit <span class="text-gradient">Lifecycle</span></h2>
+        <p class="section-subtitle">A rigorous cybersecurity methodology for contracts and protocols where a single bug can become a market-moving exploit, custody failure, or settlement incident.</p>
+      </div>
+
+      <div class="process-timeline">
+        <div class="timeline-line">
+          <div class="timeline-line-fill"></div>
+        </div>
+        <div class="process-step fade-in">
+          <div class="step-marker">
+            <span class="step-dot"></span>
+          </div>
+          <div class="step-content">
+            <div class="step-number">01</div>
+            <h3>Scope</h3>
+            <p>We map contracts, privileged roles, custody permissions, assets at risk, upgrade paths, oracle dependencies, bridges, integrations, and the financial flows the system protects.</p>
+          </div>
+        </div>
+        <div class="process-step fade-in">
+          <div class="step-marker">
+            <span class="step-dot"></span>
+          </div>
+          <div class="step-content">
+            <div class="step-number">02</div>
+            <h3>Break</h3>
+            <p>Senior researchers review code manually, model invariants, probe business logic, write exploit hypotheses, and test the paths an attacker would take.</p>
+          </div>
+        </div>
+        <div class="process-step fade-in">
+          <div class="step-marker">
+            <span class="step-dot"></span>
+          </div>
+          <div class="step-content">
+            <div class="step-number">03</div>
+            <h3>Report</h3>
+            <p>Findings are delivered with severity, impact, root cause, proof-of-concept detail, exploitability notes, and clear remediation guidance.</p>
+          </div>
+        </div>
+        <div class="process-step fade-in">
+          <div class="step-marker">
+            <span class="step-dot"></span>
+          </div>
+          <div class="step-content">
+            <div class="step-number">04</div>
+            <h3>Fix</h3>
+            <p>We work directly with your engineers to close issues, reduce privileged risk, improve invariants, and validate remediations before deployment.</p>
+          </div>
+        </div>
+        <div class="process-step fade-in">
+          <div class="step-marker">
+            <span class="step-dot"></span>
+          </div>
+          <div class="step-content">
+            <div class="step-number">05</div>
+            <h3>Verify</h3>
+            <p>Final re-review confirms patches, residual risk, upgrade controls, monitoring assumptions, custody controls, and readiness for production capital.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="services-header fade-in">
+        <span class="section-eyebrow">Institutional Security FAQ</span>
+        <h2 class="section-title">Blockchain security questions for financial institutions</h2>
+        <p class="section-subtitle">Answers for financial firms evaluating smart contract audits, tokenized asset security, custody controls, and on-chain settlement risk.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item fade-in">
+          <h3>What blockchain security services does ResearchZero provide?</h3>
+          <p>ResearchZero provides smart contract audits, tokenized asset security reviews, DeFi protocol security, custody and wallet security review, bridge and infrastructure audits, and adversarial research for financial firms building on-chain systems.</p>
+        </div>
+        <div class="faq-item fade-in">
+          <h3>Who should request an institutional smart contract audit?</h3>
+          <p>Banks, fintech companies, custodians, asset managers, payment companies, stablecoin issuers, RWA platforms, exchanges, and DeFi protocols should request an audit before launching contracts that hold assets, settle transactions, mint tokens, manage collateral, or control privileged operations.</p>
+        </div>
+        <div class="faq-item fade-in">
+          <h3>What risks are reviewed in an on-chain finance assessment?</h3>
+          <p>Reviews cover access control, accounting invariants, upgrade authority, oracle assumptions, custody permissions, bridge trust assumptions, governance actions, liquidation logic, settlement edge cases, MEV exposure, and exploit paths that can affect real capital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta" id="contact">
+    <div class="cta-bg-grid"></div>
+    <div class="container">
+      <div class="cta-content fade-in">
+        <span class="section-eyebrow">Get Started</span>
+        <h2 class="cta-title">Secure your<br>on-chain protocol</h2>
+        <p class="cta-subtitle">Talk to ResearchZero about your smart contracts, institutional DeFi protocol, tokenized asset system, stablecoin, bridge, custody wallet, or blockchain settlement infrastructure.</p>
+        <div class="cta-form">
+          <a class="cta-mail-link" href="#contact" data-contact-link aria-label="Email ResearchZero">
+            <span data-contact-label>Email ResearchZero</span>
+            <span class="cta-submit" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
+        <p class="cta-note">// Confidential scoping. Response within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo footer-logo">
+            <span class="logo-research">RESEARCH</span><span class="logo-zero">ZERO</span>
+          </a>
+          <p class="footer-tagline">Smart contract security for finance moving on-chain.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Smart Contract Audits</a></li>
+            <li><a href="#services">Institutional DeFi Security</a></li>
+            <li><a href="#institutional-blockchain-security">Tokenized Asset Security</a></li>
+            <li><a href="#services">Protocol &amp; Custody Infrastructure</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#why-us">About</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://x.com/researchzeroio" aria-label="X" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://github.com/researchzero" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ResearchZero. All rights reserved.</p>
+        <p>Smart contracts. Protocol security. On-chain finance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const revealContact = () => {
+        const link = document.querySelector('[data-contact-link]');
+        const label = document.querySelector('[data-contact-label]');
+        if (!link || !label) return;
+
+        const address = ['research', String.fromCharCode(64), 'researchzero', String.fromCharCode(46), 'io'].join('');
+        link.href = ['mailto:', address, '?subject=Security%20review%20request'].join('');
+        link.setAttribute('aria-label', `Email ${address}`);
+        label.textContent = address;
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', revealContact, { once: true });
+      } else {
+        revealContact();
+      }
+    })();
+  </script>
+  <script src="js/site.js"></script>
+</body>
+</html>
