@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Ethereum",
+    "slug": "ethereum",
+    "type": "EVM Layer 1",
+    "language": "Solidity, Vyper, and EVM bytecode",
+    "summary": "Ethereum is the primary settlement environment for DeFi, tokenized assets, stablecoins, staking, governance, and on-chain financial infrastructure.",
+    "environment": "Ethereum systems often concentrate high value in upgradeable contracts, privileged roles, vault accounting, oracle dependencies, governance paths, and integrations with established DeFi liquidity.",
+    "risks": ["Upgradeable proxy controls", "Oracle and pricing assumptions", "Vault accounting invariants", "Governance execution risk", "MEV and transaction ordering"]
+  },
+  {
+    "name": "Arbitrum",
+    "slug": "arbitrum",
+    "type": "EVM Layer 2",
+    "language": "Solidity and EVM-compatible contracts",
+    "summary": "Arbitrum is a major Ethereum rollup used by DeFi protocols, derivatives markets, lending systems, and asset infrastructure.",
+    "environment": "Arbitrum projects inherit EVM smart contract risk while adding bridge, sequencer, retryable ticket, cross-domain message, liquidity, and L2 operational assumptions.",
+    "risks": ["Cross-chain messaging assumptions", "Bridge dependency risk", "Sequencer availability", "L2-specific deployment controls", "DeFi composability risk"]
+  },
+  {
+    "name": "Base",
+    "slug": "base",
+    "type": "EVM Layer 2",
+    "language": "Solidity and EVM-compatible contracts",
+    "summary": "Base provides Ethereum scaling for consumer finance, payments, DeFi applications, and institutional on-chain products.",
+    "environment": "Base reviews combine EVM contract security with L2 bridge assumptions, OP Stack behavior, account abstraction patterns, and production controls around high-volume user flows.",
+    "risks": ["Bridge and withdrawal assumptions", "OP Stack integration risk", "Upgradeable contract authority", "Smart wallet permissions", "High-volume user flow edge cases"]
+  },
+  {
+    "name": "Optimism",
+    "slug": "optimism",
+    "type": "EVM Layer 2",
+    "language": "Solidity and EVM-compatible contracts",
+    "summary": "Optimism and OP Mainnet support cost-efficient DeFi, governance, payment, and appchain-adjacent ecosystems across the Superchain.",
+    "environment": "Optimism security work covers EVM logic, OP Stack deployment behavior, cross-domain messaging, withdrawal mechanics, governance controls, and Superchain integrations.",
+    "risks": ["Cross-domain messenger usage", "Withdrawal and bridge assumptions", "Superchain integration risk", "Sequencer availability", "Governance and upgrade controls"]
+  },
+  {
+    "name": "Polygon",
+    "slug": "polygon",
+    "type": "EVM network",
+    "language": "Solidity and EVM-compatible contracts",
+    "summary": "Polygon supports DeFi, tokenized assets, gaming, payments, enterprise blockchain deployments, and high-volume EVM applications.",
+    "environment": "Polygon reviews focus on EVM contract behavior, bridge assumptions, validator and finality considerations, oracle integrations, high-volume token flows, and upgrade safety.",
+    "risks": ["Bridge integration risk", "Validator and finality assumptions", "Token accounting drift", "Oracle configuration", "Upgradeable proxy governance"]
+  },
+  {
+    "name": "Avalanche",
+    "slug": "avalanche",
+    "type": "EVM Layer 1 and subnet ecosystem",
+    "language": "Solidity and EVM-compatible contracts",
+    "summary": "Avalanche supports DeFi, app-specific networks, institutional deployments, tokenized assets, and high-throughput EVM applications.",
+    "environment": "Avalanche security reviews include C-Chain EVM contracts, subnet architecture, bridge assumptions, staking and validator concerns, oracle integrations, and custom financial application logic.",
+    "risks": ["Subnet configuration assumptions", "Bridge and cross-chain messaging", "Validator operational risk", "Oracle and liquidation edge cases", "C-Chain EVM contract flaws"]
+  },
+  {
+    "name": "BNB Smart Chain",
+    "slug": "bnb-smart-chain",
+    "type": "EVM network",
+    "language": "Solidity and EVM-compatible contracts",
+    "summary": "BNB Smart Chain supports high-volume DeFi, exchanges, token launches, payment flows, and retail-facing EVM applications.",
+    "environment": "BNB Smart Chain reviews focus on EVM contract risk, privileged controls, token mechanics, liquidity dependencies, bridge integrations, and transaction-ordering assumptions in fast-moving markets.",
+    "risks": ["Token permissioning risk", "Liquidity and market manipulation", "Bridge dependency risk", "Privileged role exposure", "Oracle configuration"]
+  },
+  {
+    "name": "Scroll",
+    "slug": "scroll",
+    "type": "EVM zk-rollup",
+    "language": "Solidity and EVM-compatible contracts",
+    "summary": "Scroll is a zkEVM scaling environment for Ethereum applications that need EVM compatibility with zero-knowledge rollup architecture.",
+    "environment": "Scroll security reviews combine normal EVM contract analysis with rollup bridge assumptions, prover and finality considerations, cross-chain state movement, and zkEVM-specific deployment behavior.",
+    "risks": ["zkEVM compatibility assumptions", "Bridge and withdrawal mechanics", "Finality expectations", "Cross-chain state movement", "Upgradeable EVM contracts"]
+  },
+  {
+    "name": "Linea",
+    "slug": "linea",
+    "type": "EVM zk-rollup",
+    "language": "Solidity and EVM-compatible contracts",
+    "summary": "Linea is an EVM-compatible zero-knowledge rollup used for scalable Ethereum applications, DeFi, payments, and on-chain products.",
+    "environment": "Linea reviews cover EVM contract logic, zkEVM deployment assumptions, canonical bridge dependencies, finality expectations, and integration risk across Ethereum and L2 liquidity.",
+    "risks": ["zkEVM deployment assumptions", "Canonical bridge dependency", "L1/L2 message handling", "Finality and withdrawal behavior", "Oracle and liquidity integration"]
+  },
+  {
+    "name": "ZKsync",
+    "slug": "zksync",
+    "type": "EVM-compatible zk-rollup",
+    "language": "Solidity, EraVM, and account abstraction patterns",
+    "summary": "ZKsync supports scalable Ethereum applications with native account abstraction, zk rollup settlement, and evolving developer tooling.",
+    "environment": "ZKsync reviews account for EVM-like code, EraVM differences, account abstraction behavior, paymaster logic, bridge flows, and contract deployment patterns that differ from Ethereum mainnet.",
+    "risks": ["Account abstraction logic", "Paymaster abuse paths", "EraVM compatibility assumptions", "Bridge and withdrawal flows", "Deployment and factory controls"]
+  },
+  {
+    "name": "Solana",
+    "slug": "solana",
+    "type": "High-performance Layer 1",
+    "language": "Rust, Anchor, and native Solana programs",
+    "summary": "Solana supports high-throughput financial applications, exchanges, payments, token programs, and consumer-scale on-chain systems.",
+    "environment": "Solana security reviews focus on account validation, signer authority, PDA derivation, CPI boundaries, Anchor constraints, rent and lamport handling, and assumptions created by parallel execution.",
+    "risks": ["Account validation flaws", "PDA misuse", "CPI privilege escalation", "Unsafe account ownership assumptions", "State initialization issues"]
+  },
+  {
+    "name": "Aptos",
+    "slug": "aptos",
+    "type": "Move Layer 1",
+    "language": "Move modules and Aptos transaction logic",
+    "summary": "Aptos supports Move-based applications, asset systems, DeFi protocols, payment flows, and high-throughput on-chain financial products.",
+    "environment": "Aptos reviews focus on Move resource semantics, object ownership, signer authority, module upgrade patterns, token standards, transaction scripts, and financial invariants around asset movement.",
+    "risks": ["Move resource misuse", "Signer authority errors", "Module upgrade risk", "Object ownership assumptions", "Token accounting invariants"]
+  },
+  {
+    "name": "Sui",
+    "slug": "sui",
+    "type": "Move Layer 1",
+    "language": "Sui Move modules and object-centric transaction logic",
+    "summary": "Sui supports object-centric Move applications, DeFi protocols, gaming economies, token systems, and high-throughput consumer finance products.",
+    "environment": "Sui security reviews cover object ownership, shared object concurrency, capability patterns, package upgrades, programmable transaction blocks, token standards, and financial logic built around Sui Move.",
+    "risks": ["Shared object concurrency", "Capability leakage", "Package upgrade controls", "Object ownership errors", "Programmable transaction block assumptions"]
+  },
+  {
+    "name": "Canton",
+    "slug": "canton",
+    "type": "Privacy-enabled institutional network",
+    "language": "Daml smart contracts and Canton application logic",
+    "summary": "Canton supports institutional digital asset workflows, privacy-preserving settlement, tokenized assets, and regulated financial market infrastructure.",
+    "environment": "Canton reviews focus on Daml contract logic, participant permissions, privacy boundaries, settlement workflows, authorization rules, interoperability assumptions, and operational controls around institutional deployments.",
+    "risks": ["Daml authorization logic", "Privacy boundary assumptions", "Participant permissioning", "Settlement workflow edge cases", "Operational integration controls"]
+  },
+  {
+    "name": "Starknet",
+    "slug": "starknet",
+    "type": "Cairo smart contract environment",
+    "language": "Cairo and Starknet contracts",
+    "summary": "Starknet supports Cairo-native applications, account abstraction, DeFi protocols, application-specific logic, and validity-rollup infrastructure.",
+    "environment": "Starknet security reviews focus on Cairo contract behavior, account abstraction, component composition, storage layout, L1/L2 messaging, bridge assumptions, and proof-system-driven execution expectations.",
+    "risks": ["Cairo logic errors", "Account abstraction edge cases", "L1/L2 messaging assumptions", "Storage and component composition", "Bridge dependency risk"]
+  }
+]

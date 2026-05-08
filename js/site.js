@@ -158,18 +158,22 @@ function initParticleCanvas() {
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
-  const dpr = window.devicePixelRatio || 1;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
   let w, h, cx, cy;
   let nodes = [];
   let pulses = [];
   let hexGrid = [];
   let mouse = { x: -9999, y: -9999 };
-  let animFrame;
-  let running = true;
+  let animFrame = null;
+  let pulseTimer = null;
+  let running = false;
+  let heroVisible = false;
+  let lastDraw = 0;
 
-  const NODE_COUNT = 90;
+  const NODE_COUNT = 64;
   const CONNECTION_DIST = 140;
   const MOUSE_RADIUS = 180;
+  const FRAME_INTERVAL = 1000 / 30;
   // Colors that work on the light #fafafa background
   const RED = [185, 28, 28];
   const GRAY = [120, 120, 130];
@@ -242,14 +246,22 @@ function initParticleCanvas() {
   }
 
   function emitPulse() {
+    if (!running) return;
+    if (pulses.length > 4) pulses.shift();
     pulses.push({ r: 0, maxR: Math.min(w, h) * 0.48, alpha: 0.35 });
   }
 
-  let pulseTimer = setInterval(emitPulse, 3500);
-  setTimeout(emitPulse, 500);
-
   function draw(time) {
-    if (!running) return;
+    if (!running) {
+      animFrame = null;
+      return;
+    }
+    if (time - lastDraw < FRAME_INTERVAL) {
+      animFrame = requestAnimationFrame(draw);
+      return;
+    }
+    lastDraw = time;
+
     ctx.clearRect(0, 0, w, h);
     const t = time * 0.001;
 
@@ -413,14 +425,37 @@ function initParticleCanvas() {
     animFrame = requestAnimationFrame(draw);
   }
 
+  function start() {
+    if (running || !heroVisible || document.hidden) return;
+    running = true;
+    emitPulse();
+    pulseTimer = setInterval(emitPulse, 3500);
+    if (animFrame === null) {
+      animFrame = requestAnimationFrame(draw);
+    }
+  }
+
+  function stop() {
+    if (!running && animFrame === null && pulseTimer === null) return;
+    running = false;
+    pulses = [];
+    if (animFrame !== null) {
+      cancelAnimationFrame(animFrame);
+      animFrame = null;
+    }
+    if (pulseTimer !== null) {
+      clearInterval(pulseTimer);
+      pulseTimer = null;
+    }
+  }
+
   if (window.innerWidth > 768) {
     resize();
     createNodes();
-    draw(0);
 
     window.addEventListener('resize', () => { resize(); createNodes(); });
 
-    const hero = document.getElementById('hero');
+    const hero = document.getElementById('hero') || canvas.closest('.hero, .chain-hero');
     if (hero) {
       hero.addEventListener('mousemove', (e) => {
         const rect = canvas.getBoundingClientRect();
@@ -430,21 +465,29 @@ function initParticleCanvas() {
       hero.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
     }
 
-    const heroSection = document.getElementById('hero');
-    if (heroSection) {
+    const heroSection = hero || canvas.parentElement;
+    if (heroSection && 'IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (!entry.isIntersecting) {
-            running = false;
-            cancelAnimationFrame(animFrame);
+            heroVisible = false;
+            stop();
           } else {
-            running = true;
-            draw(performance.now());
+            heroVisible = true;
+            start();
           }
         });
       }, { threshold: 0 });
       observer.observe(heroSection);
+    } else {
+      heroVisible = true;
+      start();
     }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stop();
+      else start();
+    });
   }
 }
 
