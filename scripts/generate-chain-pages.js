@@ -250,6 +250,7 @@ function page(chain) {
           <li><a href="../../#supported-chains" class="nav-link">Chains</a></li>
           <li><a href="../../#why-us" class="nav-link">Why Us</a></li>
           <li><a href="../../#process" class="nav-link">Process</a></li>
+          <li><a href="https://blog.researchzero.io" class="nav-link">Blog</a></li>
         </ul>
         <div class="nav-right">
           <a href="../../#contact" class="nav-cta-btn">
@@ -271,6 +272,7 @@ function page(chain) {
     <a href="../../#supported-chains">Chains</a>
     <a href="../../#why-us">Why Us</a>
     <a href="../../#process">Process</a>
+    <a href="https://blog.researchzero.io">Blog</a>
     <a href="../../#contact" class="nav-cta-btn">Request Security Review</a>
   </div>
 
