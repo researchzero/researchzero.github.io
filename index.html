@@ -1226,7 +1226,7 @@
         const label = document.querySelector('[data-contact-label]');
         if (!link || !label) return;
 
-        const address = ['research', String.fromCharCode(64), 'researchzero', String.fromCharCode(46), 'io'].join('');
+        const address = ['contact', String.fromCharCode(64), 'researchzero', String.fromCharCode(46), 'io'].join('');
         link.href = ['mailto:', address, '?subject=Security%20review%20request'].join('');
         link.setAttribute('aria-label', `Email ${address}`);
         label.textContent = address;

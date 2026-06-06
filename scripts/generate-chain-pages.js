@@ -19,7 +19,7 @@ const contactScript = `(() => {
         const links = document.querySelectorAll('[data-contact-link]');
         if (!links.length) return;
 
-        const address = ['research', String.fromCharCode(64), 'researchzero', String.fromCharCode(46), 'io'].join('');
+        const address = ['contact', String.fromCharCode(64), 'researchzero', String.fromCharCode(46), 'io'].join('');
         links.forEach((link) => {
           const label = link.querySelector('[data-contact-label]');
           link.href = ['mailto:', address, '?subject=Security%20review%20request'].join('');
